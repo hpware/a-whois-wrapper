@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ClientPage from "../components/clientpage.tsx";
+export function getStaticPaths() {
+    return [
+        { params: { slug: "clifford" } },
+        { params: { slug: "rover" } },
+        { params: { slug: "spot" } },
+    ];
+}
+
+const { slug } = Astro.params;
+export const prerender = false;
+---
+
+<Layout>
+    <ClientPage />
+    <div>Good morning, {slug}!</div>
+</Layout>
